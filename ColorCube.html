@@ -1,0 +1,36 @@
+<html>
+<!--	<head>
+		<script>
+			var c = document.getElementById("myCanvas");
+			var ctx = c.getContext("2d");
+			ctx.fillStyle = "#000000";
+			ctx.fillRect(0,0,10,10);
+		</script>
+	</head> -->
+<body>
+	<canvas id="myCanvas" width="256" height="256" style="border:1px solid #000000;"></canvas>
+	<p>
+		<input onchange="paintCross(this.value)" type="range"
+		id="slideRed" name="slideRed" value="0" min="0" max="255">
+	</p>
+	
+	<script>
+		var c = document.getElementById("myCanvas");
+		var ctx = c.getContext("2d");		
+		
+		var r = 0;
+		
+		function paintCross(r) {
+			for (i = 0; i < c.width; i++) {
+				for (j = 0; j < c.height; j++) {
+					var color = "rgb(" + r + "," + i + "," + j + ")";
+					ctx.fillStyle = color;
+					ctx.fillRect(i,j,1,1);
+				}
+			}
+		}
+		paintCross(0);
+	</script>
+
+</body>
+</html>
